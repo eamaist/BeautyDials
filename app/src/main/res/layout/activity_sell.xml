@@ -37,14 +37,15 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                >
 
             <ImageButton
                 android:id="@+id/like"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_alignParentLeft="true"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/fav_add"
                 android:scaleType="fitCenter"
@@ -56,7 +57,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginLeft="20dp"
                     android:background="@drawable/baseline_border_color_24"
 
@@ -67,7 +68,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginLeft="20dp"
                     android:background="@drawable/save"
                     android:scaleType="fitCenter"
@@ -81,7 +82,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="20dp"
-
+                    android:fontFamily="@font/inter"
+                    android:textStyle="bold"
                     android:layout_toLeftOf="@+id/like"
                     android:enabled="false"
                     android:text=""
@@ -89,34 +91,25 @@
                     android:textSize="30dp" />
             </RelativeLayout>
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/descrAd"
+                android:fontFamily="@font/inter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:text="Описание:"
-                    android:fontFamily="@font/inter"
-                    android:textColor="#000000"
-                    android:textSize="20dp" />
-
-                <EditText
-                    android:id="@+id/descrAd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
-                    android:enabled="false"
-                    android:text=""
-                    android:textColor="#000000"
-                    android:textSize="20dp" />
-            </LinearLayout>
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:hint="Описание"
+                android:textAlignment="center"
+                android:textColor="#CD4F90"
+                android:textColorHint="#FFACC8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/ounded_corner_background" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -125,7 +118,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
@@ -138,6 +131,7 @@
                     android:id="@+id/priceAd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
@@ -155,7 +149,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
@@ -185,11 +179,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="170dp"
-                    android:fontFamily="@font/inter"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="Для связи:"
+                    android:layout_marginTop="20dp"
+                    android:text="Для записи:"
+                    android:fontFamily="@font/inter"
                     android:textColor="#000000"
                     android:textSize="20dp" />
 
@@ -197,6 +192,7 @@
                     android:id="@+id/contactAd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
                     android:enabled="false"

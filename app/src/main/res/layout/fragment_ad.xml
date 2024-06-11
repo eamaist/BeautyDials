@@ -70,6 +70,6 @@
         android:layout_height="100dp"
         android:layout_margin="12dp"
         android:src="@drawable/icon"
-        android:layout_gravity="center"/>
-
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"></ImageView>
 </LinearLayout>

@@ -51,7 +51,7 @@ public final class SQLiteTable {
                 "\tFOREIGN KEY (\""+COLUMN_USER+"\") REFERENCES \"User\"("+COLUMN_ID+") ON DELETE CASCADE\n" +
                 ");";
         public static final String[] FILL_DATA ={
-                "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES (1, 2, 1, 'Френч', 2000, NULL, 'Еще актуален (честно)');\n",
+                "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES (1, 2, 1, 'Френч', 2000, NULL, 'Френч маникюр - это классический и элегантный вид маникюра, который подходит для любого случая и образа.');\n",
                 "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(2,2,1,'Крутая прическа',1000000,NULL,'на выпускной');\n",
                 "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(3,3,1,'Однотон',1000,NULL,'Для бедных');\n",
                 "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(4,4,1,'Наращивание',3000,NULL,'Грабли лишними не будут');\n",

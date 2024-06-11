@@ -147,12 +147,6 @@ public class PersonFragment extends Fragment {
 
     }
 
-    private void requestPermission() {
-        ActivityCompat.requestPermissions(getActivity(),
-                new String[]{getResources().getString(R.string.post_notifications)},
-                PERMISSION_REQUEST_CODE);
-    }
-
 
 
 
@@ -207,6 +201,27 @@ public class PersonFragment extends Fragment {
             }
         });
         builder.create().show();
+
+        byte[] imageInByte;
+        ImageView imageView = binding.ava;
+        if (imageView.getDrawable() != null) {
+            Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap, 600, 800, true);
+            resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
+            imageInByte = baos.toByteArray();
+        }
+        else{
+            imageInByte = null;
+        }
+        SQLiteDatabase database = new SQLiteHelper(getActivity()).getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(SQLiteTable.Ads.COLUMN_IMAGE, imageInByte);
+        Cursor cursor = database.query(SQLiteTable.Ads.TABLE_NAME,
+                null, null, null, null, null, null);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("MyPrefs", getActivity().MODE_PRIVATE);
+        String userId = sharedPreferences.getString("UserID", "");
+        database.update(SQLiteTable.Ads.TABLE_NAME, values, SQLiteTable.Ads.COLUMN_ID + "=" + Integer.parseInt(userId), null);
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
