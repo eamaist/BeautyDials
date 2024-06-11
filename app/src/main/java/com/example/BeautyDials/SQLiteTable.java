@@ -28,9 +28,9 @@ public final class SQLiteTable {
         public static final String[] FILL_DATA = {
                 "INSERT INTO User VALUES(1,'Олеся',NULL,0,'89999999999','123','user1@mail.ru');",
                 "INSERT INTO User VALUES(2,'Наташа',NULL,1,'89999999991','123','user2@mail.ru');",
-                "INSERT INTO User VALUES(3,'Марина',NULL,1,'89999999992','123','user3mail.ru');",
-                "INSERT INTO User VALUES(4,'Света',NULL,0,'89999999993','123','user4mail.ru');",
-                "INSERT INTO User VALUES(5,'Юля',NULL,0,'89999999994','123','user5mail.ru');"
+                "INSERT INTO User VALUES(3,'Марина',NULL,1,'89999999992','123','user3@mail.ru');",
+                "INSERT INTO User VALUES(4,'Света',NULL,0,'89999999993','123','user4@mail.ru');",
+                "INSERT INTO User VALUES(5,'Юля',NULL,0,'89999999994','123','user5@mail.ru');"
         };
     }
 
@@ -52,11 +52,11 @@ public final class SQLiteTable {
                 ");";
         public static final String[] FILL_DATA ={
                 "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES (1, 2, 1, 'Френч', 2000, NULL, 'Френч маникюр - это классический и элегантный вид маникюра, который подходит для любого случая и образа.');\n",
-                "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(2,2,1,'Крутая прическа',1000000,NULL,'на выпускной');\n",
-                "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(3,3,1,'Однотон',1000,NULL,'Для бедных');\n",
-                "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(4,4,1,'Наращивание',3000,NULL,'Грабли лишними не будут');\n",
-                "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(5,5,1,'Уход за волосами',1000000000,NULL,'Хотите дешево - побрейтесь налысо');\n",
-                "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(7,2,1,'Педикюр',5000,NULL,'Раз в год можно');\n"};
+                "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(2,3,1,'Крутая прическа',1000000,NULL,'Элегантная и романтичная укладка волос, которая подчеркивает красоту и индивидуальность выпускницы');\n",
+                "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(3,2,1,'Однотон',1000,NULL,'Меня зовут Кира Йошикаге. Мне 33 года. Мой дом находится в северо-восточной части Морио, где расположены все виллы. Я не женат. Я работаю в универмаге Kame Yu и прихожу домой не позднее 8 вечера.');\n",
+                "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(4,3,1,'Наращивание ресниц',3000,NULL,'Удлинение и увеличение объема натуральных ресниц с помощью индивидуальных штучных рас, которая позволяет создать яркий и эффектный взгляд.');\n",
+                "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(5,3,1,'Уход за волосами',1000000000,NULL,'Хотите дешево - побрейтесь налысо');\n",
+                "INSERT INTO Ads (ID, User_ID, Relevant, Name, Price, Image, Descriptions) VALUES(7,2,1,'Мем',5000,NULL,'Немножко мемов не повредит');\n"};
 
     }
     public static class Favourites implements BaseColumns{

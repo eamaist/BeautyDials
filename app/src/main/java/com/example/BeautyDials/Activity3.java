@@ -62,6 +62,7 @@ public class Activity3 extends AppCompatActivity {
                 newAd.putExtra("edit", "0");
                 newAd.putExtra("itemId", "");
                 startActivity(newAd);
+                finish();
             }
         });
 
@@ -81,36 +82,57 @@ public class Activity3 extends AppCompatActivity {
     }
 
 
-    private boolean fillData() {
-        SQLiteDatabase database = new SQLiteHelper(this).getReadableDatabase();
-        String[] adProjection = {
-                SQLiteTable.Favourites.COLUMN_AD,
-                SQLiteTable.Favourites.COLUMN_USER
+    private void fillData() {
+        String[] projection = {
+                SQLiteTable.Ads.COLUMN_ID,
+                SQLiteTable.Ads.COLUMN_NAME,
+                SQLiteTable.Ads.COLUMN_PRICE,
+                SQLiteTable.Ads.COLUMN_USER,
+                SQLiteTable.Ads.COLUMN_IMAGE
         };
-        String adSelection =
-                SQLiteTable.Favourites.COLUMN_USER + " = ?";
-        String[] selectionArgs = {String.valueOf(user.id)};
-
-
-        Cursor adCursor = database.query(
-                SQLiteTable.Favourites.TABLE_NAME,     // Запрашиваемая таблица
-                adProjection,                               // Возвращаемый столбец
-                adSelection,                                // Столбец для условия WHERE
-                selectionArgs,                            // Значение для условия WHERE
+        SQLiteDatabase database = new SQLiteHelper(this).getReadableDatabase();
+        Cursor cursor = database.query(
+                SQLiteTable.Ads.TABLE_NAME,     // Запрашиваемая таблица
+                projection,                               // Возвращаемый столбец
+                null,                                // Столбец для условия WHERE
+                null,                            // Значение для условия WHERE
                 null,                                     // не группировать строки
                 null,                                     // не фильтровать по группам строк
                 null                                      // не сортировать
         );
-        adCursor.moveToFirst();
-        String adId, userId;
-        for (int i=0; i<adCursor.getCount();i++){
-            adId = adCursor.getString(adCursor.getColumnIndexOrThrow(SQLiteTable.Favourites.COLUMN_AD));
-            userId = adCursor.getString(adCursor.getColumnIndexOrThrow(SQLiteTable.Favourites.COLUMN_USER));
-            adds.add(getAd(adId));
-            adCursor.moveToNext();
+        cursor.moveToFirst();
+        for (int i=0; i<cursor.getCount();i++){
+
+            int id = Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow(SQLiteTable.Ads.COLUMN_ID)));
+            int price = Integer.parseInt(cursor.getString(cursor.getColumnIndexOrThrow(SQLiteTable.Ads.COLUMN_PRICE)));
+            String name = cursor.getString(cursor.getColumnIndexOrThrow(SQLiteTable.Ads.COLUMN_NAME));
+            String userId = cursor.getString(cursor.getColumnIndexOrThrow(SQLiteTable.Ads.COLUMN_USER));
+            byte[] imageInByte = cursor.getBlob(cursor.getColumnIndexOrThrow(SQLiteTable.Ads.COLUMN_IMAGE));
+            String[] userProjection = {
+                    SQLiteTable.User.COLUMN_NAME
+            };
+            String userSelection =
+                    SQLiteTable.User.COLUMN_ID + " = ?";
+            String[] selectionArgs = {userId};
+
+            Cursor userCursor = database.query(
+                    SQLiteTable.User.TABLE_NAME,     // Запрашиваемая таблица
+                    userProjection,                               // Возвращаемый столбец
+                    userSelection,                                // Столбец для условия WHERE
+                    selectionArgs,                            // Значение для условия WHERE
+                    null,                                     // не группировать строки
+                    null,                                     // не фильтровать по группам строк
+                    null                                      // не сортировать
+            );
+            userCursor.moveToFirst();
+            String userName = userCursor.getString(0);
+            if (user.id == Integer.parseInt(userId))
+                adds.add(new Add(id, price, imageInByte, name, userName));
+            userCursor.close();
+            cursor.moveToNext();
         }
-        if (adds.size()==0){return false;}
-        return true;
+
+        cursor.close();
     }
 
     private Add getAd(String adId) {
