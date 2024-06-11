@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
     android:background="#FFFFFF"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
 
 
@@ -100,6 +101,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:text="Описание:"
+                    android:fontFamily="@font/inter"
                     android:textColor="#000000"
                     android:textSize="20dp" />
 
@@ -129,7 +131,8 @@
                     android:layout_marginTop="20dp"
                     android:text="Цена (руб.):"
                     android:textColor="#000000"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:fontFamily="@font/inter"/>
 
                 <EditText
                     android:id="@+id/priceAd"
@@ -157,6 +160,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="20dp"
                     android:text="Мастер:"
+                    android:fontFamily="@font/inter"
                     android:textColor="#000000"
                     android:textSize="20dp" />
 
@@ -170,7 +174,8 @@
                     android:enabled="false"
                     android:text=""
                     android:textColor="#000000"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:fontFamily="@font/inter"/>
             </LinearLayout>
 
             <LinearLayout
@@ -181,6 +186,7 @@
 
                 <TextView
                     android:layout_width="170dp"
+                    android:fontFamily="@font/inter"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:text="Для связи:"
@@ -196,7 +202,8 @@
                     android:enabled="false"
                     android:text=""
                     android:textColor="#000000"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:fontFamily="@font/inter"/>
             </LinearLayout>
 
 
